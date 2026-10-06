@@ -26,9 +26,9 @@ export default function Footer({ onOpenModal }) {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '32px', marginBottom: '36px', borderBottom: '1px solid #1a2540', flexWrap: 'wrap', gap: '20px' }}>
           <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <img 
-              src="/images/logo_zarwebcoders_official.jpg" 
+              src="/images/logo_zarwebcoders_white.png" 
               alt="ZarWebCoders - INFINITE SOLUTION. ENDLESS INNOVATION." 
-              style={{ height: '44px', width: 'auto', background: '#ffffff', padding: '4px 10px', borderRadius: '8px' }}
+              style={{ height: '44px', width: 'auto', display: 'block' }}
             />
           </Link>
           <div style={{ textAlign: 'right' }}>

@@ -34,9 +34,9 @@ export default function Navbar({ onOpenModal }) {
         {/* Brand Logo - Official ZarWebCoders Image */}
         <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="logo" style={{ textDecoration: 'none' }}>
           <img 
-            src="/images/logo_zarwebcoders_official.jpg" 
+            src="/images/logo_zarwebcoders_transparent.png" 
             alt="ZarWebCoders - INFINITE SOLUTION. ENDLESS INNOVATION." 
-            style={{ height: '46px', width: 'auto', objectFit: 'contain' }}
+            style={{ height: '46px', width: 'auto', objectFit: 'contain', display: 'block' }}
           />
         </Link>
 
