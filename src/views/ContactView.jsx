@@ -605,7 +605,7 @@ export default function ContactView({ onOpenModal }) {
             </div>
 
             {/* Right: 3D Isometric Glowing Blockchain Cubes SVG */}
-            <div style={{ position: 'relative', width: '280px', height: '170px', flexShrink: 0, zIndex: 2 }}>
+            <div className="dark-cta-svg-cube-wrap" style={{ position: 'relative', zIndex: 2 }}>
               <svg width="100%" height="100%" viewBox="0 0 280 170" fill="none">
                 <defs>
                   <linearGradient id="cubeGlow1" x1="0%" y1="0%" x2="100%" y2="100%">

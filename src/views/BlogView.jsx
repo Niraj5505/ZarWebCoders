@@ -266,7 +266,7 @@ export default function BlogView({ onOpenModal }) {
             </div>
 
             {/* Search Input Box */}
-            <div style={{ position: 'relative', width: '280px' }}>
+            <div className="blog-search-box-wrap" style={{ position: 'relative' }}>
               <input
                 type="text"
                 placeholder="Search articles..."

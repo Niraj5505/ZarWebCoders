@@ -4021,10 +4021,99 @@ ul { list-style: none; }
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Home & Global Responsive Split Layouts */
+.home-expertise-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.home-expertise-image-wrap {
+  position: relative;
+  width: 100%;
+}
+.home-expertise-img-card {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(26, 122, 255, 0.12);
+  border: 1px solid #e8edf5;
+  width: 100%;
+}
+.badge-expertise-1 {
+  top: 16px;
+  left: 16px;
+}
+.badge-expertise-2 {
+  top: 16px;
+  right: 16px;
+}
+.badge-expertise-3 {
+  bottom: 24px;
+  right: 16px;
+}
+
+.home-clarity-split {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 56px;
+  align-items: center;
+}
+.home-clarity-image-wrap {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e8edf5;
+  width: 100%;
+}
+.home-clarity-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.about-team-split-layout {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+.defi-overview-split-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 1.35fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.blog-search-box-wrap {
+  position: relative;
+  width: 280px;
+}
+
+.dark-cta-svg-cube-wrap {
+  position: relative;
+  width: 280px;
+  height: 170px;
+  flex-shrink: 0;
+}
+
+.badge-mid-right {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.badge-highlight {
+  border-color: rgba(0, 212, 255, 0.4) !important;
+  box-shadow: 0 4px 14px rgba(0, 212, 255, 0.15) !important;
+}
+
 /* Base Body and Overflow Safety */
-html, body {
+html, body, #root {
   overflow-x: hidden;
   max-width: 100vw;
+  width: 100%;
 }
 
 /* ─── Tablet & Mobile Breakpoints (max-width: 1024px) ─── */
@@ -4038,7 +4127,11 @@ html, body {
   .contact-main-grid,
   .contact-location-split,
   .defi-analysis-3col,
-  .defi-results-split-row {
+  .defi-results-split-row,
+  .home-expertise-split,
+  .home-clarity-split,
+  .about-team-split-layout,
+  .defi-overview-split-layout {
     grid-template-columns: 1fr !important;
     gap: 36px !important;
   }
@@ -4154,6 +4247,118 @@ html, body {
     transform-origin: bottom right !important;
   }
 
+  /* Home Split Sections Mobile Resets */
+  .home-expertise-split {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .home-expertise-image-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 8px !important;
+  }
+  .home-expertise-img-card {
+    width: 100% !important;
+    border-radius: 16px !important;
+  }
+  .home-expertise-img-card img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+  }
+  .home-clarity-split {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+  .home-clarity-image-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 8px !important;
+    border-radius: 16px !important;
+  }
+  .home-clarity-img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 10 !important;
+    object-fit: cover !important;
+  }
+  .about-team-split-layout {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .defi-overview-split-layout {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .blog-search-box-wrap {
+    width: 100% !important;
+  }
+  .dark-cta-svg-cube-wrap {
+    width: 100% !important;
+    max-width: 260px !important;
+    height: 130px !important;
+    margin: 16px auto 0 !important;
+  }
+
+  /* Floating Badges & Code Card on Mobile */
+  .badge-expertise-1 {
+    top: 10px !important;
+    left: 10px !important;
+    font-size: 0.72rem !important;
+    padding: 4px 10px !important;
+  }
+  .badge-expertise-2 {
+    top: 10px !important;
+    right: 10px !important;
+    font-size: 0.72rem !important;
+    padding: 4px 10px !important;
+  }
+  .badge-expertise-3 {
+    bottom: 12px !important;
+    right: 10px !important;
+    font-size: 0.72rem !important;
+    padding: 4px 10px !important;
+  }
+  .badge-mid-right {
+    display: none !important;
+  }
+  .floating-code-card {
+    top: 10px !important;
+    right: 10px !important;
+    padding: 10px 14px !important;
+    font-size: 0.68rem !important;
+    transform: scale(0.86) !important;
+    transform-origin: top right !important;
+  }
+  .hero-floating-cube-badge {
+    padding: 5px 10px !important;
+    font-size: 0.72rem !important;
+  }
+  .badge-top-left {
+    top: 10px !important;
+    left: 10px !important;
+    padding: 4px 10px !important;
+    font-size: 0.72rem !important;
+  }
+  .badge-top-right {
+    top: 10px !important;
+    right: 10px !important;
+    padding: 4px 10px !important;
+    font-size: 0.72rem !important;
+  }
+  .badge-bottom-left {
+    bottom: 10px !important;
+    left: 10px !important;
+    padding: 4px 10px !important;
+    font-size: 0.72rem !important;
+  }
+  .badge-bottom-right {
+    bottom: 10px !important;
+    right: 10px !important;
+    padding: 4px 10px !important;
+    font-size: 0.72rem !important;
+  }
+
   /* Hero Badges Rows */
   .contract-hero-badges-row,
   .contact-hero-badges-row {
@@ -4238,10 +4443,68 @@ html, body {
   .btn-hero-primary,
   .btn-hero-white,
   .btn-primary,
-  .btn-secondary {
+  .btn-secondary,
+  .btn-expertise-outline {
     width: 100% !important;
     justify-content: center !important;
     text-align: center !important;
+  }
+
+  /* Overlapping badge management on tiny screens */
+  .badge-expertise-2 {
+    display: none !important;
+  }
+  .badge-top-right {
+    display: none !important;
+  }
+  .floating-code-card {
+    transform: scale(0.72) !important;
+    top: 6px !important;
+    right: 6px !important;
+  }
+
+  /* Hero tech strip */
+  .hero-tech-strip {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 16px 14px !important;
+    gap: 12px !important;
+  }
+  .tech-strip-items {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
+
+  /* Team portraits on mobile */
+  .team-portraits-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+  }
+  .team-portrait-card {
+    width: 100% !important;
+    max-width: 290px !important;
+    height: 310px !important;
+    margin: 0 auto !important;
+  }
+
+  /* Clarity accordion & subcards */
+  .clarity-item {
+    padding: 14px 16px !important;
+  }
+  .clarity-item-title {
+    font-size: 0.92rem !important;
+  }
+  .expertise-subcards-wrapper {
+    padding: 20px 16px !important;
+    margin-top: 32px !important;
+  }
+  .expertise-subcards-wrapper .grid-3 {
+    gap: 16px !important;
+  }
+  .expertise-subcard {
+    padding: 4px 0 !important;
   }
 
   /* Stats to 1 column if tight */

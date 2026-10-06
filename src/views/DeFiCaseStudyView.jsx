@@ -188,7 +188,7 @@ export default function DeFiCaseStudyView({ onOpenModal }) {
           ═══════════════════════════════════════════════════════ */}
       <section className="section section-bg-white" style={{ paddingTop: '70px', paddingBottom: '60px' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.15fr 1.35fr', gap: '48px', alignItems: 'start' }}>
+          <div className="defi-overview-split-layout">
             {/* Left Narrative */}
             <div>
               <h2 style={{ fontSize: '2.2rem', fontWeight: '800', color: '#0d1526', marginBottom: '18px', fontFamily: 'Outfit, sans-serif' }}>
@@ -789,7 +789,7 @@ export default function DeFiCaseStudyView({ onOpenModal }) {
             </div>
 
             {/* Right: 3D Isometric Glowing Blockchain Cubes SVG */}
-            <div style={{ position: 'relative', width: '280px', height: '170px', flexShrink: 0, zIndex: 2 }}>
+            <div className="dark-cta-svg-cube-wrap" style={{ position: 'relative', zIndex: 2 }}>
               <svg width="100%" height="100%" viewBox="0 0 280 170" fill="none">
                 <defs>
                   <linearGradient id="defiCubeGlow1" x1="0%" y1="0%" x2="100%" y2="100%">

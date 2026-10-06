@@ -236,8 +236,8 @@ export default function HomeView({ onOpenModal }) {
       <section className="section section-bg-white" style={{ paddingTop: '80px', paddingBottom: '70px' }}>
         <div className="container">
           {/* Top Split Layout */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '56px', alignItems: 'center' }}>
-            <div>
+          <div className="home-expertise-split">
+            <div className="home-expertise-content">
               <div style={{ fontSize: '0.76rem', fontWeight: '700', letterSpacing: '1.4px', textTransform: 'uppercase', color: '#1a7aff', marginBottom: '14px' }}>
                 OUR EXPERTISE
               </div>
@@ -254,8 +254,8 @@ export default function HomeView({ onOpenModal }) {
             </div>
 
             {/* Right Developer Image with Floating Badges */}
-            <div style={{ position: 'relative' }}>
-              <div style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(26,122,255,0.12)', border: '1px solid #e8edf5' }}>
+            <div className="home-expertise-image-wrap">
+              <div className="home-expertise-img-card">
                 <img
                   src="/images/developer_workstation.jpg"
                   alt="ZarWebCoders Web3 Engineer Workstation"
@@ -264,15 +264,15 @@ export default function HomeView({ onOpenModal }) {
               </div>
 
               {/* Floating Badges matching wireframe */}
-              <div className="hero-floating-cube-badge" style={{ top: '16px', left: '16px' }}>
+              <div className="hero-floating-cube-badge badge-expertise-1">
                 <div className="cube-dot"></div>
                 <span>Smart Contracts</span>
               </div>
-              <div className="hero-floating-cube-badge" style={{ top: '16px', right: '16px' }}>
+              <div className="hero-floating-cube-badge badge-expertise-2">
                 <div className="cube-dot"></div>
                 <span>dApp Development</span>
               </div>
-              <div className="hero-floating-cube-badge" style={{ bottom: '24px', right: '16px' }}>
+              <div className="hero-floating-cube-badge badge-expertise-3">
                 <div className="cube-dot"></div>
                 <span>Wallet Integration</span>
               </div>
@@ -321,18 +321,18 @@ export default function HomeView({ onOpenModal }) {
           ═══════════════════════════════════════════════════════ */}
       <section className="section section-bg-white" style={{ paddingTop: '50px', paddingBottom: '80px' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.15fr', gap: '56px', alignItems: 'center' }}>
+          <div className="home-clarity-split">
             {/* Left Team Photo */}
-            <div style={{ position: 'relative', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.08)', border: '1px solid #e8edf5' }}>
+            <div className="home-clarity-image-wrap">
               <img
                 src="/images/team_working.jpg"
                 alt="ZarWebCoders Developers Collaborating"
-                style={{ width: '100%', height: 'auto', display: 'block' }}
+                className="home-clarity-img"
               />
             </div>
 
             {/* Right Accordion / List */}
-            <div>
+            <div className="home-clarity-content">
               <h2 className="section-title" style={{ fontSize: '2.4rem', lineHeight: '1.2', marginBottom: '16px' }}>
                 Built for Clarity. Designed for Scale.
               </h2>

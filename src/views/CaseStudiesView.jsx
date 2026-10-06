@@ -155,11 +155,11 @@ export default function CaseStudiesView({ onOpenModal }) {
                 <div className="cube-dot"></div>
                 <span>dApps</span>
               </div>
-              <div className="hero-floating-cube-badge" style={{ right: '20px', top: '50%' }}>
+              <div className="hero-floating-cube-badge badge-mid-right">
                 <div className="cube-dot"></div>
                 <span>Web3 Integration</span>
               </div>
-              <div className="hero-floating-cube-badge badge-bottom-left" style={{ padding: '8px 16px' }}>
+              <div className="hero-floating-cube-badge badge-bottom-left badge-highlight">
                 <CheckCircle2 size={16} color="#00d4ff" />
                 <span>From Concept to Deployed</span>
               </div>

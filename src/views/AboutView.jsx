@@ -305,7 +305,7 @@ export default function AboutView({ onOpenModal }) {
           ═══════════════════════════════════════════════════════ */}
       <section className="section section-bg-white" style={{ paddingTop: '20px', paddingBottom: '80px' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 3fr', gap: '40px', alignItems: 'center', marginBottom: '36px' }}>
+          <div className="about-team-split-layout">
             <div>
               <div style={{ fontSize: '0.76rem', fontWeight: '700', letterSpacing: '1.4px', textTransform: 'uppercase', color: '#1a7aff', marginBottom: '10px' }}>
                 OUR TEAM
