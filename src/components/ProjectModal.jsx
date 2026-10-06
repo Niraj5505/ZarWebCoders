@@ -59,7 +59,7 @@ export default function ProjectModal({ isOpen, onClose }) {
             </div>
 
             <form onSubmit={handleSubmit}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <div className="modal-form-row">
                 <div className="form-group">
                   <label className="form-label">Your Name *</label>
                   <input
@@ -84,7 +84,7 @@ export default function ProjectModal({ isOpen, onClose }) {
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <div className="modal-form-row">
                 <div className="form-group">
                   <label className="form-label">Phone Number</label>
                   <input
@@ -137,10 +137,10 @@ export default function ProjectModal({ isOpen, onClose }) {
                 ></textarea>
               </div>
 
-              <div style={{ display: 'flex', gap: '20px', margin: '20px 0', fontSize: '0.8rem', color: '#64748b' }}>
-                <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><Shield size={14} color="#0066ff" /> Free Consultation</span>
-                <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><Clock size={14} color="#0066ff" /> Fast Response</span>
-                <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><MessageSquare size={14} color="#0066ff" /> Confidential NDA</span>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', margin: '20px 0', fontSize: '0.8rem', color: '#64748b' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><Shield size={14} color="#1a7aff" /> Free Consultation</span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><Clock size={14} color="#1a7aff" /> Fast Response</span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><MessageSquare size={14} color="#1a7aff" /> Confidential NDA</span>
               </div>
 
               <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '12px' }}>

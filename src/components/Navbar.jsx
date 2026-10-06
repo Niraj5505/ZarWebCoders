@@ -58,7 +58,7 @@ export default function Navbar({ onOpenModal }) {
         </nav>
 
         {/* Right CTA Button */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <button className="btn-navbar" onClick={onOpenModal}>
             Discuss a Project <ArrowRight size={16} />
           </button>
@@ -67,37 +67,63 @@ export default function Navbar({ onOpenModal }) {
             className="mobile-toggle" 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
-            style={{ background: 'none', border: 'none', color: '#0f172a', padding: '8px', cursor: 'pointer' }}
+            style={{ 
+              background: 'none', 
+              border: 'none', 
+              color: '#0d1526', 
+              padding: '8px', 
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div style={{ background: '#ffffff', padding: '20px', borderBottom: '1px solid #e2e8f0' }}>
-          <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <div className="mobile-nav-drawer">
+          <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '14px', margin: 0, padding: 0 }}>
             {navItems.map((item) => (
               <li key={item.path}>
                 <button
                   style={{
                     fontSize: '1.05rem',
                     fontWeight: isActive(item.path) ? '700' : '500',
-                    color: isActive(item.path) ? '#0066ff' : '#334155',
+                    color: isActive(item.path) ? 'var(--primary-blue)' : '#334155',
                     width: '100%',
                     textAlign: 'left',
-                    background: 'none',
+                    background: isActive(item.path) ? 'rgba(26,122,255,0.08)' : 'none',
                     border: 'none',
-                    cursor: 'pointer'
+                    borderRadius: '10px',
+                    padding: '10px 14px',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between'
                   }}
                   onClick={() => handleNavClick(item.path)}
                 >
-                  {item.label}
+                  <span>{item.label}</span>
+                  {isActive(item.path) && <ArrowRight size={14} color="var(--primary-blue)" />}
                 </button>
               </li>
             ))}
           </ul>
+
+          <div style={{ marginTop: '20px', paddingTop: '16px', borderTop: '1px solid #e8edf5' }}>
+            <button 
+              className="btn-hero-primary" 
+              onClick={() => { setMobileMenuOpen(false); onOpenModal(); }}
+              style={{ width: '100%', justifyContent: 'center', padding: '12px' }}
+            >
+              Discuss a Project <ArrowRight size={16} />
+            </button>
+          </div>
         </div>
       )}
     </header>
