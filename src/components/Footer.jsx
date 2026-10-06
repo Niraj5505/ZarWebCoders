@@ -1,139 +1,133 @@
-import React from 'react'
-import { ArrowRight, Mail, MapPin } from 'lucide-react'
-import Logo from './Logo'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Mail, MapPin, CheckCircle } from 'lucide-react';
+import { LinkedinIcon, TwitterIcon, GithubIcon, YoutubeIcon } from './SocialIcons';
+import { brand } from '../data/websiteData';
 
-export default function Footer({ onDiscussClick, onNavClick }) {
-  const quickLinks = [
-    { label: 'Home', href: '#home', id: 'home' },
-    { label: 'Services', href: '#services', id: 'services' },
-    { label: 'Case Studies', href: '#case-studies', id: 'case-studies' },
-    { label: 'About', href: '#about', id: 'about' },
-    { label: 'Blog', href: '#blog', id: 'blog' },
-    { label: 'Contact', href: '#contact', id: 'contact' },
-  ]
+export default function Footer({ onOpenModal }) {
+  const [email, setEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
 
-  const serviceLinks = [
-    { label: 'Smart Contracts', href: '#services' },
-    { label: 'dApp Development', href: '#services' },
-    { label: 'Wallet Integrations', href: '#services' },
-    { label: 'Blockchain Infrastructure', href: '#services' },
-  ]
-
-  const handleLink = (e, href) => {
-    e.preventDefault()
-    const target = document.querySelector(href)
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (email) {
+      setSubscribed(true);
+      setTimeout(() => {
+        setSubscribed(false);
+        setEmail('');
+      }, 4000);
     }
-  }
+  };
 
   return (
-    <footer className="pt-16 pb-8 bg-white border-t border-slate-200/80 text-left">
-      <div className="max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Main Columns Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12">
-          
-          {/* Col 1: Brand & Logo */}
-          <div className="lg:col-span-3 flex flex-col items-start">
-            <a href="#home" onClick={(e) => handleLink(e, '#home')} className="mb-4">
-              <Logo />
-            </a>
-            <p className="text-[13px] text-slate-500 leading-relaxed max-w-[220px]">
-              Engineering secure smart contracts, dApps, and blockchain infrastructure for the next generation of the web.
+    <footer className="footer" style={{ background: '#05091a', borderTop: '1px solid #1a2540', color: '#94a3b8' }}>
+      <div className="container">
+        {/* Top bar with CTA motto */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '32px', marginBottom: '36px', borderBottom: '1px solid #1a2540', flexWrap: 'wrap', gap: '20px' }}>
+          <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <img 
+              src="/images/logo_zarwebcoders_official.jpg" 
+              alt="ZarWebCoders - INFINITE SOLUTION. ENDLESS INNOVATION." 
+              style={{ height: '44px', width: 'auto', background: '#ffffff', padding: '4px 10px', borderRadius: '8px' }}
+            />
+          </Link>
+          <div style={{ textAlign: 'right' }}>
+            <div style={{ fontSize: '0.92rem', color: '#94a3b8', fontStyle: 'italic' }}>
+              Let's build your
+            </div>
+            <div style={{ fontSize: '1.05rem', fontWeight: '700', color: '#ffffff', marginTop: '2px' }}>
+              Web3 product together.
+            </div>
+            <div style={{ width: '48px', height: '3px', background: 'linear-gradient(90deg, #1a7aff, #00d4ff)', marginLeft: 'auto', marginTop: '6px', borderRadius: '2px' }}></div>
+          </div>
+        </div>
+
+        <div className="footer-grid">
+          {/* Col 1 */}
+          <div>
+            <div style={{ fontWeight: '700', fontSize: '1.1rem', color: '#ffffff', marginBottom: '6px', fontFamily: 'Outfit, sans-serif' }}>
+              ZarWebCoders
+            </div>
+            <div style={{ fontSize: '0.82rem', color: '#00d4ff', fontWeight: '600', letterSpacing: '0.5px', textTransform: 'uppercase', marginBottom: '14px' }}>
+              Web3 Development Agency
+            </div>
+            <p style={{ fontSize: '0.88rem', lineHeight: '1.65', marginBottom: '20px', color: '#6d7fa0' }}>
+              We build custom smart contracts, dApps, and blockchain infrastructure designed for high security and scale.
             </p>
+            <div className="social-links" style={{ justifyContent: 'flex-start', gap: '10px' }}>
+              <a href="#" className="social-link" title="LinkedIn" style={{ background: '#0c1225', borderColor: '#1a2540', color: '#94a3b8' }}><LinkedinIcon size={15} /></a>
+              <a href="#" className="social-link" title="X / Twitter" style={{ background: '#0c1225', borderColor: '#1a2540', color: '#94a3b8' }}><TwitterIcon size={15} /></a>
+              <a href="#" className="social-link" title="GitHub" style={{ background: '#0c1225', borderColor: '#1a2540', color: '#94a3b8' }}><GithubIcon size={15} /></a>
+              <a href="#" className="social-link" title="YouTube" style={{ background: '#0c1225', borderColor: '#1a2540', color: '#94a3b8' }}><YoutubeIcon size={15} /></a>
+            </div>
           </div>
 
-          {/* Col 2: Quick Links */}
-          <div className="lg:col-span-2">
-            <h4 className="text-[14px] font-bold text-slate-900 tracking-tight mb-4">
-              Quick Links
-            </h4>
-            <ul className="flex flex-col gap-2.5">
-              {quickLinks.map((item) => (
-                <li key={item.label}>
-                  <a
-                    href={item.href}
-                    onClick={(e) => handleLink(e, item.href)}
-                    className="text-[13px] text-slate-500 hover:text-emerald-700 transition-colors"
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
+          {/* Col 2 */}
+          <div>
+            <h4 className="footer-title" style={{ color: '#ffffff', fontSize: '0.95rem' }}>Quick Links</h4>
+            <ul className="footer-links">
+              <li><Link to="/" className="footer-link" style={{ color: '#94a3b8' }} onClick={() => window.scrollTo({top:0})}>Home</Link></li>
+              <li><Link to="/services" className="footer-link" style={{ color: '#94a3b8' }} onClick={() => window.scrollTo({top:0})}>Services</Link></li>
+              <li><Link to="/case-studies" className="footer-link" style={{ color: '#94a3b8' }} onClick={() => window.scrollTo({top:0})}>Case Studies</Link></li>
+              <li><Link to="/about" className="footer-link" style={{ color: '#94a3b8' }} onClick={() => window.scrollTo({top:0})}>About</Link></li>
+              <li><Link to="/blog" className="footer-link" style={{ color: '#94a3b8' }} onClick={() => window.scrollTo({top:0})}>Blog</Link></li>
+              <li><Link to="/contact" className="footer-link" style={{ color: '#94a3b8' }} onClick={() => window.scrollTo({top:0})}>Contact</Link></li>
             </ul>
           </div>
 
-          {/* Col 3: Our Services */}
-          <div className="lg:col-span-2">
-            <h4 className="text-[14px] font-bold text-slate-900 tracking-tight mb-4">
-              Our Services
-            </h4>
-            <ul className="flex flex-col gap-2.5">
-              {serviceLinks.map((item) => (
-                <li key={item.label}>
-                  <a
-                    href={item.href}
-                    onClick={(e) => handleLink(e, item.href)}
-                    className="text-[13px] text-slate-500 hover:text-emerald-700 transition-colors"
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
+          {/* Col 3 */}
+          <div>
+            <h4 className="footer-title" style={{ color: '#ffffff', fontSize: '0.95rem' }}>Our Services</h4>
+            <ul className="footer-links">
+              <li><Link to="/services/smart-contract-development" className="footer-link" style={{ color: '#94a3b8' }} onClick={() => window.scrollTo({top:0})}>Smart Contracts</Link></li>
+              <li><Link to="/services" className="footer-link" style={{ color: '#94a3b8' }} onClick={() => window.scrollTo({top:0})}>dApp Development</Link></li>
+              <li><Link to="/services" className="footer-link" style={{ color: '#94a3b8' }} onClick={() => window.scrollTo({top:0})}>Wallet Integrations</Link></li>
+              <li><Link to="/services" className="footer-link" style={{ color: '#94a3b8' }} onClick={() => window.scrollTo({top:0})}>Blockchain Infrastructure</Link></li>
             </ul>
           </div>
 
-          {/* Col 4: Get In Touch */}
-          <div className="lg:col-span-3">
-            <h4 className="text-[14px] font-bold text-slate-900 tracking-tight mb-4">
-              Get In Touch
-            </h4>
-            <div className="flex flex-col gap-3 mb-5">
-              <a
-                href="mailto:hello@zarwebcoders.in"
-                className="flex items-center gap-2 text-[13px] text-slate-600 hover:text-emerald-600 transition-colors"
-              >
-                <Mail className="w-3.5 h-3.5 text-slate-400" />
-                <span>hello@zarwebcoders.in</span>
-              </a>
-              <div className="flex items-center gap-2 text-[13px] text-slate-600">
-                <MapPin className="w-3.5 h-3.5 text-slate-400" />
-                <span>India (Remote &amp; On-site)</span>
+          {/* Col 4 */}
+          <div>
+            <h4 className="footer-title" style={{ color: '#ffffff', fontSize: '0.95rem' }}>Get in Touch</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '0.88rem', color: '#94a3b8', marginBottom: '20px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <Mail size={16} color="#00d4ff" /> hello@zarwebcoders.in
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <MapPin size={16} color="#00d4ff" /> India (Remote &amp; On-site)
               </div>
             </div>
 
-            <button
-              onClick={onDiscussClick}
-              className="inline-flex items-center gap-2 bg-[#eaf6ee] hover:bg-[#d9efe0] text-[#1e874c] font-semibold text-[13px] px-5 py-2 rounded-full transition-all duration-200 cursor-pointer"
+            <button 
+              className="btn-primary" 
+              onClick={onOpenModal}
+              style={{ 
+                padding: '10px 22px', 
+                fontSize: '0.86rem', 
+                borderRadius: '9999px',
+                background: 'linear-gradient(135deg, #1a7aff, #0058d4)',
+                border: 'none',
+                color: 'white',
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px'
+              }}
             >
-              <span>Discuss a Project</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              Discuss a Project <ArrowRight size={15} />
             </button>
           </div>
-
-          {/* Col 5: Right CTA message */}
-          <div className="lg:col-span-2 flex flex-col justify-start">
-            <p className="text-[14px] font-medium text-slate-800 leading-snug mb-3">
-              Let's build your <br />
-              <span className="font-semibold text-slate-900">Web3 product together.</span>
-            </p>
-            <div className="w-10 h-1 bg-emerald-500 rounded-full" />
-          </div>
-
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12px] text-slate-400">
-          <p>© 2025 ZarWebCoders. All rights reserved.</p>
-          <div className="flex items-center gap-4">
-            <a href="#privacy" className="hover:text-slate-600 transition-colors">Privacy Policy</a>
-            <span>|</span>
-            <a href="#terms" className="hover:text-slate-600 transition-colors">Terms of Service</a>
+        <div className="footer-bottom" style={{ borderTop: '1px solid #1a2540', marginTop: '48px', paddingTop: '24px', color: '#6d7fa0', fontSize: '0.84rem' }}>
+          <div>© 2025 ZarWebCoders. All rights reserved.</div>
+          <div style={{ display: 'flex', gap: '20px' }}>
+            <Link to="/contact" className="footer-link" style={{ color: '#6d7fa0' }}>Privacy Policy</Link>
+            <span style={{ color: '#1a2540' }}>|</span>
+            <Link to="/contact" className="footer-link" style={{ color: '#6d7fa0' }}>Terms of Service</Link>
           </div>
         </div>
-
       </div>
     </footer>
-  )
+  );
 }
