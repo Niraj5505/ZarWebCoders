@@ -18,7 +18,7 @@ import {
   Headphones,
   ExternalLink
 } from 'lucide-react';
-import { LinkedinIcon, TwitterIcon, GithubIcon, YoutubeIcon, TelegramIcon } from '../components/SocialIcons';
+import { LinkedinIcon, TwitterIcon, InstagramIcon, FacebookIcon } from '../components/SocialIcons';
 import { brand } from '../data/websiteData';
 
 export default function ContactView({ onOpenModal }) {
@@ -348,20 +348,17 @@ export default function ContactView({ onOpenModal }) {
                 <div>
                   <div className="contact-channel-title">Follow Us</div>
                   <div className="contact-social-icons-row">
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="contact-social-icon-btn" aria-label="LinkedIn">
+                    <a href={brand.socials?.linkedin || "#"} target="_blank" rel="noopener noreferrer" className="contact-social-icon-btn" aria-label="LinkedIn">
                       <LinkedinIcon size={16} />
                     </a>
-                    <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="contact-social-icon-btn" aria-label="Twitter">
+                    <a href={brand.socials?.twitter || "https://x.com/zarwebcoders"} target="_blank" rel="noopener noreferrer" className="contact-social-icon-btn" aria-label="Twitter">
                       <TwitterIcon size={16} />
                     </a>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="contact-social-icon-btn" aria-label="GitHub">
-                      <GithubIcon size={16} />
+                    <a href={brand.socials?.instagram || "https://www.instagram.com/zarwebcoders/"} target="_blank" rel="noopener noreferrer" className="contact-social-icon-btn" aria-label="Instagram">
+                      <InstagramIcon size={16} />
                     </a>
-                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="contact-social-icon-btn" aria-label="YouTube">
-                      <YoutubeIcon size={16} />
-                    </a>
-                    <a href="https://telegram.org" target="_blank" rel="noopener noreferrer" className="contact-social-icon-btn" aria-label="Telegram">
-                      <TelegramIcon size={16} />
+                    <a href={brand.socials?.facebook || "https://www.facebook.com/Zarwebcoders/"} target="_blank" rel="noopener noreferrer" className="contact-social-icon-btn" aria-label="Facebook">
+                      <FacebookIcon size={16} />
                     </a>
                   </div>
                 </div>

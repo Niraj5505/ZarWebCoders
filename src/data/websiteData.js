@@ -3,8 +3,14 @@ export const brand = {
   tagline: 'INFINITE SOLUTION. ENDLESS INNOVATION.',
   subTagline: 'Web3 Development Agency',
   email: 'info@zarwebcoders.in',
-  phone: '+91 98765 43210',
-  office: 'Ahmedabad, Gujarat, India'
+  phone: '+91 81604 04725',
+  office: 'Ahmedabad, Gujarat, India',
+  socials: {
+    linkedin: '#',
+    twitter: 'https://x.com/zarwebcoders',
+    instagram: 'https://www.instagram.com/zarwebcoders/',
+    facebook: 'https://www.facebook.com/Zarwebcoders/'
+  }
 };
 
 export const techStack = [

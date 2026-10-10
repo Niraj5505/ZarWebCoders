@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Mail, MapPin, CheckCircle } from 'lucide-react';
-import { LinkedinIcon, TwitterIcon, GithubIcon, YoutubeIcon } from './SocialIcons';
+import { ArrowRight, Mail, Phone, MapPin, CheckCircle } from 'lucide-react';
+import { LinkedinIcon, TwitterIcon, InstagramIcon, FacebookIcon } from './SocialIcons';
 import { brand } from '../data/websiteData';
 
 export default function Footer({ onOpenModal }) {
@@ -55,10 +55,10 @@ export default function Footer({ onOpenModal }) {
               We build custom smart contracts, dApps, and blockchain infrastructure designed for high security and scale.
             </p>
             <div className="social-links" style={{ justifyContent: 'flex-start', gap: '10px' }}>
-              <a href="#" className="social-link" title="LinkedIn" style={{ background: '#0c1225', borderColor: '#1a2540', color: '#94a3b8' }}><LinkedinIcon size={15} /></a>
-              <a href="#" className="social-link" title="X / Twitter" style={{ background: '#0c1225', borderColor: '#1a2540', color: '#94a3b8' }}><TwitterIcon size={15} /></a>
-              <a href="#" className="social-link" title="GitHub" style={{ background: '#0c1225', borderColor: '#1a2540', color: '#94a3b8' }}><GithubIcon size={15} /></a>
-              <a href="#" className="social-link" title="YouTube" style={{ background: '#0c1225', borderColor: '#1a2540', color: '#94a3b8' }}><YoutubeIcon size={15} /></a>
+              <a href={brand.socials?.linkedin || "#"} target="_blank" rel="noopener noreferrer" className="social-link" title="LinkedIn" style={{ background: '#0c1225', borderColor: '#1a2540', color: '#94a3b8' }}><LinkedinIcon size={15} /></a>
+              <a href={brand.socials?.twitter || "https://x.com/zarwebcoders"} target="_blank" rel="noopener noreferrer" className="social-link" title="X / Twitter" style={{ background: '#0c1225', borderColor: '#1a2540', color: '#94a3b8' }}><TwitterIcon size={15} /></a>
+              <a href={brand.socials?.instagram || "https://www.instagram.com/zarwebcoders/"} target="_blank" rel="noopener noreferrer" className="social-link" title="Instagram" style={{ background: '#0c1225', borderColor: '#1a2540', color: '#94a3b8' }}><InstagramIcon size={15} /></a>
+              <a href={brand.socials?.facebook || "https://www.facebook.com/Zarwebcoders/"} target="_blank" rel="noopener noreferrer" className="social-link" title="Facebook" style={{ background: '#0c1225', borderColor: '#1a2540', color: '#94a3b8' }}><FacebookIcon size={15} /></a>
             </div>
           </div>
 
@@ -91,10 +91,13 @@ export default function Footer({ onOpenModal }) {
             <h4 className="footer-title" style={{ color: '#ffffff', fontSize: '0.95rem' }}>Get in Touch</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '0.88rem', color: '#94a3b8', marginBottom: '20px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <Mail size={16} color="#00d4ff" /> hello@zarwebcoders.in
+                <Mail size={16} color="#00d4ff" /> {brand.email}
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <MapPin size={16} color="#00d4ff" /> India (Remote &amp; On-site)
+                <Phone size={16} color="#00d4ff" /> {brand.phone}
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <MapPin size={16} color="#00d4ff" /> {brand.office}
               </div>
             </div>
 
@@ -120,7 +123,7 @@ export default function Footer({ onOpenModal }) {
         </div>
 
         <div className="footer-bottom" style={{ borderTop: '1px solid #1a2540', marginTop: '48px', paddingTop: '24px', color: '#6d7fa0', fontSize: '0.84rem' }}>
-          <div>© 2025 ZarWebCoders. All rights reserved.</div>
+          <div>© 2026 ZarWebCoders. All rights reserved.</div>
           <div style={{ display: 'flex', gap: '20px' }}>
             <Link to="/contact" className="footer-link" style={{ color: '#6d7fa0' }}>Privacy Policy</Link>
             <span style={{ color: '#1a2540' }}>|</span>

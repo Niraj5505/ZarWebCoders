@@ -73,7 +73,6 @@ export default function Navbar({ onOpenModal }) {
               color: '#0d1526', 
               padding: '8px', 
               cursor: 'pointer',
-              display: 'flex',
               alignItems: 'center',
               justifyContent: 'center'
             }}
