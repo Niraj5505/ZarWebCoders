@@ -4,7 +4,8 @@ export const brand = {
   subTagline: 'Web3 Development Agency',
   email: 'info@zarwebcoders.in',
   phone: '+91 81604 04725',
-  office: 'Ahmedabad, Gujarat, India',
+  office: '909-910, A block, Signature 2, Sanand Circle, Sarkhej, Ahmedabad-382210',
+  mapsUrl: 'https://maps.google.com/?q=909-910,+A+block,+Signature+2,+Sanand+Circle,+Sarkhej,+Ahmedabad-382210',
   socials: {
     linkedin: '#',
     twitter: 'https://x.com/zarwebcoders',

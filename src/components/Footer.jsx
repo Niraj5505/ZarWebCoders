@@ -91,13 +91,16 @@ export default function Footer({ onOpenModal }) {
             <h4 className="footer-title" style={{ color: '#ffffff', fontSize: '0.95rem' }}>Get in Touch</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '0.88rem', color: '#94a3b8', marginBottom: '20px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <Mail size={16} color="#00d4ff" /> {brand.email}
+                <Mail size={16} color="#00d4ff" style={{ flexShrink: 0 }} /> 
+                <a href={`mailto:${brand.email}`} style={{ color: '#94a3b8', textDecoration: 'none' }}>{brand.email}</a>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <Phone size={16} color="#00d4ff" /> {brand.phone}
+                <Phone size={16} color="#00d4ff" style={{ flexShrink: 0 }} /> 
+                <a href={`tel:${brand.phone.replace(/\s+/g, '')}`} style={{ color: '#94a3b8', textDecoration: 'none' }}>{brand.phone}</a>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <MapPin size={16} color="#00d4ff" /> {brand.office}
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                <MapPin size={16} color="#00d4ff" style={{ flexShrink: 0, marginTop: '3px' }} /> 
+                <a href={brand.mapsUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#94a3b8', textDecoration: 'none', lineHeight: '1.5' }}>{brand.office}</a>
               </div>
             </div>
 

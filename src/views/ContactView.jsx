@@ -323,7 +323,9 @@ export default function ContactView({ onOpenModal }) {
                 </div>
                 <div>
                   <div className="contact-channel-title">Call Us</div>
-                  <div className="contact-channel-value">{brand.phone}</div>
+                  <a href={`tel:${brand.phone.replace(/\s+/g, '')}`} className="contact-channel-value" style={{ color: 'var(--text-main)', textDecoration: 'none' }}>
+                    {brand.phone}
+                  </a>
                   <div className="contact-channel-sub">Mon - Sat, 9:00 AM - 7:00 PM (IST)</div>
                 </div>
               </div>
@@ -335,7 +337,9 @@ export default function ContactView({ onOpenModal }) {
                 </div>
                 <div>
                   <div className="contact-channel-title">Our Office</div>
-                  <div className="contact-channel-value">{brand.office}</div>
+                  <a href={brand.mapsUrl} target="_blank" rel="noopener noreferrer" className="contact-channel-value" style={{ color: 'var(--text-main)', textDecoration: 'none', display: 'block', lineHeight: '1.45' }}>
+                    {brand.office}
+                  </a>
                   <div className="contact-channel-sub">Available for meetings by appointment.</div>
                 </div>
               </div>
@@ -458,11 +462,11 @@ export default function ContactView({ onOpenModal }) {
 
                   {/* Marker Card */}
                   <g transform="translate(14, -28)">
-                    <rect x="0" y="0" width="145" height="42" rx="8" fill="#ffffff" stroke="#e8edf5" strokeWidth="1" filter="drop-shadow(0 4px 10px rgba(0,0,0,0.1))" />
+                    <rect x="0" y="0" width="165" height="42" rx="8" fill="#ffffff" stroke="#e8edf5" strokeWidth="1" filter="drop-shadow(0 4px 10px rgba(0,0,0,0.1))" />
                     <circle cx="16" cy="21" r="7" fill="#ef4444" />
                     <path d="M16 17 L19 22 L13 22 Z" fill="#ffffff" transform="scale(0.8) translate(4, 5)" />
                     <text x="30" y="17" fill="#0d1526" fontSize="11" fontWeight="800" fontFamily="Outfit, sans-serif">ZarWebCoders</text>
-                    <text x="30" y="31" fill="#64748b" fontSize="8.5" fontWeight="500">Ahmedabad, Gujarat, India</text>
+                    <text x="30" y="31" fill="#64748b" fontSize="8" fontWeight="500">Signature 2, Sarkhej, Ahmedabad</text>
                   </g>
                 </g>
               </svg>
@@ -478,9 +482,9 @@ export default function ContactView({ onOpenModal }) {
               </p>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '28px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.88rem', color: '#1e293b', fontWeight: '600' }}>
-                  <MapPin size={18} color="var(--primary-blue)" style={{ flexShrink: 0 }} />
-                  <span>{brand.office}</span>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '0.88rem', color: '#1e293b', fontWeight: '600' }}>
+                  <MapPin size={18} color="var(--primary-blue)" style={{ flexShrink: 0, marginTop: '2px' }} />
+                  <a href={brand.mapsUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#1e293b', textDecoration: 'none', lineHeight: '1.5' }}>{brand.office}</a>
                 </div>
 
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '0.84rem', color: '#64748b' }}>
@@ -494,7 +498,7 @@ export default function ContactView({ onOpenModal }) {
 
               <div>
                 <a 
-                  href="https://maps.google.com/?q=Ahmedabad+Gujarat+India" 
+                  href={brand.mapsUrl} 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="btn-hero-white"
