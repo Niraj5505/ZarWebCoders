@@ -473,7 +473,7 @@ export default function ContactView({ onOpenModal }) {
                     <circle cx="16" cy="21" r="7" fill="#ef4444" />
                     <path d="M16 17 L19 22 L13 22 Z" fill="#ffffff" transform="scale(0.8) translate(4, 5)" />
                     <text x="30" y="17" fill="#0d1526" fontSize="11" fontWeight="800" fontFamily="Outfit, sans-serif">ZarWebCoders</text>
-                    <text x="30" y="31" fill="#64748b" fontSize="8" fontWeight="500">Signature 2, Sarkhej, Ahmedabad</text>
+                    <text x="30" y="31" fill="#64748b" fontSize="8" fontWeight="500">909-910, A Block, Signature 2, Sarkhej</text>
                   </g>
                 </g>
               </svg>
@@ -693,7 +693,7 @@ export default function ContactView({ onOpenModal }) {
                 <MapPin size={19} />
               </div>
               <div>
-                <div className="phone-light-contact-title">Ahmedabad, Gujarat, India</div>
+                <div className="phone-light-contact-title">909-910, A Block, Signature 2, Sanand Circle, Sarkhej, Ahmedabad-382210</div>
                 <div className="phone-light-contact-desc">Available for meetings by appointment.</div>
               </div>
             </div>

@@ -47,7 +47,7 @@ export default function PhoneContactView({ onBack, onClose, onOpenModal }) {
             <MapPin size={19} />
           </div>
           <div>
-            <div className="phone-light-contact-title">Ahmedabad, Gujarat, India</div>
+            <div className="phone-light-contact-title">909-910, A Block, Signature 2, Sanand Circle, Sarkhej, Ahmedabad-382210</div>
             <div className="phone-light-contact-desc">Available for meetings by appointment.</div>
           </div>
         </div>
