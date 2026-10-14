@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ProjectModal from './components/ProjectModal';
@@ -11,10 +11,19 @@ import DeFiCaseStudyView from './views/DeFiCaseStudyView';
 import BlogView from './views/BlogView';
 import ContactView from './views/ContactView';
 import AboutView from './views/AboutView';
+import AdminDashboard from './admin/AdminDashboard';
 
 function AppContent() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedServiceId, setSelectedServiceId] = useState('smart-contract-development');
+  const location = useLocation();
+
+  // If on admin route, render Admin Dashboard with its dedicated layout
+  const isAdminRoute = location.pathname.startsWith('/admin');
+
+  if (isAdminRoute) {
+    return <AdminDashboard />;
+  }
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>

@@ -11,24 +11,46 @@ export default function ProjectModal({ isOpen, onClose }) {
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      onClose();
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        serviceType: 'Smart Contract Development',
-        budget: '$5k - $15k',
-        message: ''
+    setLoading(true);
+    setErrorMessage('');
+    try {
+      const res = await fetch('/api/inquiry', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-    }, 3000);
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || 'Failed to submit inquiry');
+      }
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        onClose();
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          serviceType: 'Smart Contract Development',
+          budget: '$5k - $15k',
+          message: ''
+        });
+      }, 3000);
+    } catch (err) {
+      console.error('Inquiry submission error:', err);
+      setErrorMessage(err.message || 'Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -143,8 +165,19 @@ export default function ProjectModal({ isOpen, onClose }) {
                 <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><MessageSquare size={14} color="#1a7aff" /> Confidential NDA</span>
               </div>
 
-              <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '12px' }}>
-                Send Message <Send size={16} />
+              {errorMessage && (
+                <div style={{ padding: '10px 14px', background: '#fef2f2', border: '1px solid #fecaca', borderRadius: '8px', color: '#b91c1c', fontSize: '0.88rem', marginBottom: '14px' }}>
+                  {errorMessage}
+                </div>
+              )}
+
+              <button 
+                type="submit" 
+                className="btn-primary" 
+                style={{ width: '100%', justifyContent: 'center', padding: '12px', opacity: loading ? 0.7 : 1, cursor: loading ? 'not-allowed' : 'pointer' }}
+                disabled={loading}
+              >
+                {loading ? 'Submitting...' : <>Send Message <Send size={16} /></>}
               </button>
             </form>
           </div>

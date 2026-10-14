@@ -35,27 +35,49 @@ export default function ContactView({ onOpenModal }) {
     agree: false
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [openFaq, setOpenFaq] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.agree) {
       alert('Please agree to the Privacy Policy and Terms of Service.');
       return;
     }
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        projectType: 'Select a service',
-        subject: '',
-        message: '',
-        agree: false
+    setLoading(true);
+    setErrorMessage('');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-    }, 4000);
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || 'Failed to submit form');
+      }
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          projectType: 'Select a service',
+          subject: '',
+          message: '',
+          agree: false
+        });
+      }, 4000);
+    } catch (err) {
+      console.error('Contact submission error:', err);
+      setErrorMessage(err.message || 'Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const toggleFaq = (index) => {
@@ -279,6 +301,12 @@ export default function ContactView({ onOpenModal }) {
                     ></textarea>
                   </div>
 
+                  {errorMessage && (
+                    <div style={{ padding: '10px 14px', background: '#fef2f2', border: '1px solid #fecaca', borderRadius: '8px', color: '#b91c1c', fontSize: '0.88rem', marginTop: '12px' }}>
+                      {errorMessage}
+                    </div>
+                  )}
+
                   {/* Row 5: Agreement Checkbox & Submit Button */}
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px', marginTop: '10px' }}>
                     <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#64748b', cursor: 'pointer' }}>
@@ -292,8 +320,13 @@ export default function ContactView({ onOpenModal }) {
                       <span>I agree to the <Link to="#" style={{ color: 'var(--primary-blue)', textDecoration: 'underline' }}>Privacy Policy</Link> and <Link to="#" style={{ color: 'var(--primary-blue)', textDecoration: 'underline' }}>Terms of Service</Link></span>
                     </label>
 
-                    <button type="submit" className="btn-hero-primary" style={{ padding: '11px 26px', fontSize: '0.92rem' }}>
-                      Send Message <ArrowRight size={16} />
+                    <button 
+                      type="submit" 
+                      className="btn-hero-primary" 
+                      style={{ padding: '11px 26px', fontSize: '0.92rem', opacity: loading ? 0.7 : 1, cursor: loading ? 'not-allowed' : 'pointer' }}
+                      disabled={loading}
+                    >
+                      {loading ? 'Sending...' : <>Send Message <ArrowRight size={16} /></>}
                     </button>
                   </div>
                 </form>
