@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Mail, Phone, MapPin, CheckCircle, Shield } from 'lucide-react';
+import { ArrowRight, Mail, Phone, MapPin, CheckCircle } from 'lucide-react';
 import { LinkedinIcon, TwitterIcon, InstagramIcon, FacebookIcon } from './SocialIcons';
 import { brand } from '../data/websiteData';
 
@@ -131,10 +131,6 @@ export default function Footer({ onOpenModal }) {
             <Link to="/contact" className="footer-link" style={{ color: '#6d7fa0' }}>Privacy Policy</Link>
             <span style={{ color: '#1a2540' }}>|</span>
             <Link to="/contact" className="footer-link" style={{ color: '#6d7fa0' }}>Terms of Service</Link>
-            <span style={{ color: '#1a2540' }}>|</span>
-            <Link to="/admin" className="footer-link" style={{ color: '#00d4ff', display: 'inline-flex', alignItems: 'center', gap: '5px', fontWeight: '600' }}>
-              <Shield size={12} /> Admin
-            </Link>
           </div>
         </div>
       </div>
